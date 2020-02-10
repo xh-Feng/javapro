@@ -103,7 +103,7 @@ public class Mybook {
             System.out.println("请输入1-4中的任一个数字\n1：添加图书\n2：删除图书\n3：查找图书(根据书名)\n4：退出当用户");
             int a = s.nextInt();
             if (a == 1) {
-                System.out.println("添加图书：\n请输入要添加的图书的本数");
+                System.out.println("添加图书：\n请输入要添加的图书的本数\n还有错 只能一次性添加 再次选择会覆盖之前的添加");
                 int n = s.nextInt();
                 inputData(myBook.books, n);
             } else if (a == 2) {
