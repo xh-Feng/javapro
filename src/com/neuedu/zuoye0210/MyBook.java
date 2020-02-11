@@ -68,8 +68,8 @@ public class MyBook {
 
     }
 
-    //增加删除功能，编写函数(ArrayList<MyBook> books,String name)，
-    //根据书名name在数组books中查找是否存在此书，如果存在，删除该书，并提示“此书删除成功。”，并显示该书的详细信息。
+    //增加删除功能，编写函数(ArrayList<MyBook> books,String name)，根据书名name在数组books中查找是否存在此书
+    //如果存在，删除该书，并提示“此书删除成功。”，并显示该书的详细信息。
     //如果不存在，输出“没有此书，删除失败.”
     public void deleteName(ArrayList<MyBook> books, String name){
         Integer flag = 1;
