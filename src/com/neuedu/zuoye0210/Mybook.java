@@ -3,13 +3,13 @@ package com.neuedu.zuoye0210;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class mybook{
+/*class mybook{
     String name;
     Double price;
     String press;
     String author;
     String bookISBN;
-}
+}*/
 
 public class Mybook {
     private String name;
