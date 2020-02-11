@@ -11,7 +11,7 @@ import java.util.Scanner;
     String bookISBN;
 }*/
 
-public class Mybook {
+public class MyBook {
     private String name;
     private Double price;
     private String press;
@@ -25,68 +25,67 @@ public class Mybook {
     /*public ArrayList mybook(){
         return mybook();
     }*/
-    //inputData(ArrayList<Mybook> books])，n为书的数量，从键盘上输入n本书的信息
+    //inputData(ArrayList<MyBook> books])，n为书的数量，从键盘上输入n本书的信息
 
-    public ArrayList inputData(ArrayList<Mybook> books,Integer n){
+    public ArrayList inputData(ArrayList<MyBook> books, Integer n){
         Scanner scanner = new Scanner(System.in);
-        Mybook mybook = new Mybook();
+        MyBook myBook = new MyBook();
         for (int i = 0; i < n; i++){
             System.out.println("请按以下顺序输入信息：书名、价格、出版社、作者、书的ISBN号");
-            mybook.name = scanner.next();
-            mybook.price = scanner.nextDouble();
-            mybook.press = scanner.next();
-            mybook.author = scanner.next();
-            mybook.bookISBN = scanner.next();
+            myBook.name = scanner.next();
+            myBook.price =  Double.valueOf(scanner.next());
+            myBook.press = scanner.next();
+            myBook.author = scanner.next();
+            myBook.bookISBN = scanner.next();
+            books.add(myBook);
         }
         return books;
 
     }
 
-    //编写一个函数print(ArrayList<Mybook> books)，输出全部书的信息。
-    public void print(ArrayList<Mybook> books){
-        for(Mybook book : books){
+    //编写一个函数print(ArrayList<MyBook> books)，输出全部书的信息。
+    public void print(ArrayList<MyBook> books){
+        for(MyBook book : books){
             System.out.println("书名："+book.name+"\n价格："+book.price+"\n出版社："+book.press+"\n作者："+
                     book.author+"\nISBN："+book.bookISBN);
         }
     }
 
-    //增加查找功能，编写函数searchName(ArrayList<Mybook> books,String name)，
+    //增加查找功能，编写函数searchName(ArrayList<MyBook> books,String name)，
     //根据书名name在数组books中查找是否存在此书，如果能找到，输出该书的详细信息，如果找不到，输出“此书不存在”。
-    public void searchName(ArrayList<Mybook> books,String name){
-        Boolean flag = true;
-        for (Mybook book : books){
+    public void searchName(ArrayList<MyBook> books, String name){
+        for (MyBook book : books){
             if (book.name.equals(name)){
                 System.out.println("书名："+book.name);
                 System.out.println("价格："+book.price);
                 System.out.println("出版社："+book.press);
                 System.out.println("作者："+book.author);
                 System.out.println("ISBN："+book.bookISBN);
-                flag = false;
+                return;
             }
         }
-        if (flag){
-            System.out.println("此书不存在");
-        }
+        System.out.println("此书不存在");
+
     }
 
-    //增加删除功能，编写函数(ArrayList<Mybook> books,String name)，
+    //增加删除功能，编写函数(ArrayList<MyBook> books,String name)，
     //根据书名name在数组books中查找是否存在此书，如果存在，删除该书，并提示“此书删除成功。”，并显示该书的详细信息。
     //如果不存在，输出“没有此书，删除失败.”
-    public void deleteName(ArrayList<Mybook> books,String name){
-        Boolean flag = true;
+    public void deleteName(ArrayList<MyBook> books, String name){
+        Integer flag = 1;
         for (int i = 0; i < books.size(); i++){
             if (books.get(i).name.equals(name)){
-                books.remove(i);
-                System.out.println("此书删除成功。\n");
                 System.out.println("书名："+books.get(i).name);
                 System.out.println("价格："+books.get(i).price);
                 System.out.println("出版社："+books.get(i).press);
                 System.out.println("作者："+books.get(i).author);
                 System.out.println("ISBN："+books.get(i).bookISBN);
-                flag = false;
+                books.remove(i);
+                System.out.println("此书删除成功。\n");
+                return;
             }
         }
-        if (flag){
+        if (flag==1){
             System.out.println("没有此书，删除失败");
         }
     }
@@ -95,7 +94,7 @@ public class Mybook {
     // 1：添加图书2：删除图书3：查找图书（根据用户名）4：退出当用户
     //输入1-3时，分别调用输入、删除和查找函数，当用户输入4时程序结束。
     public void menu() {
-        Mybook myBook = new Mybook();
+        MyBook myBook = new MyBook();
         myBook.books = new ArrayList();
         int flag = 0;
         Scanner s = new Scanner(System.in);
