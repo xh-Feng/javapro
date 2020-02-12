@@ -11,10 +11,10 @@ public class MyBookMain {
     public static File file = new File("d:/Atushu");
 
     public static void main(String[] args) {
-        if (!file.exists()){
+        if(!file.exists()){
             inputData(list);
             save();
-        }else {
+        }else{
             read();
         }
         menu();
@@ -122,21 +122,19 @@ public class MyBookMain {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
+        }finally {
             try {
-                if (oos!= null)
+                if(oos!=null)
                     oos.close();
-                if (os!=null)
+                if(os!=null)
                     os.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
-
     }
     public static void read(){
-        InputStream is = null;
+        InputStream is  = null;
         ObjectInputStream ois = null;
         try {
             is = new FileInputStream(file);
@@ -148,11 +146,11 @@ public class MyBookMain {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        } finally {
+        }finally {
             try {
-                if (ois!=null)
+                if(ois!=null)
                     ois.close();
-                if (is!=null)
+                if(is!=null)
                     is.close();
             } catch (IOException e) {
                 e.printStackTrace();
