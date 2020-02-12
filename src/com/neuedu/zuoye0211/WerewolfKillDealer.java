@@ -53,6 +53,7 @@ public class WerewolfKillDealer {
     }*/
 
     public void fixed(){
+        //无法判断底牌有什么
         /*String[] arr = {"Villagers","Villagers","Villagers","Villagers","Villagers",
                 "Werewolves","Werewolves","Werewolves","Werewolves","Werewolves",
                 "Savior","Seer","Hunter", "Cupid","Acient", "Thief","Scapegoat","Witch"};*/
