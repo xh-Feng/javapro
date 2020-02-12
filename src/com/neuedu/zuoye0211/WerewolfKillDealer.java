@@ -10,47 +10,55 @@ public class WerewolfKillDealer {
     private String[] dealer = {"Villagers","Werewolves","Savior","Seer","Hunter",
             "Cupid","Acient", "Thief","Scapegoat","Witch"};
 
-    /*public void randomGeneration(){
+    public void randomGeneration(){
+        RandomSettings rs = new RandomSettings();
         int a = new Random().nextInt(7)+12;
         ArrayList arry = new ArrayList();
         switch (a){
             case 12:
-
+                String[] arr = {"村民","村民","村民","村民",
+                        "狼人","狼人","狼人","狼人",
+                        "预言家","女巫","丘比特","守护","猎人","村长","盗贼"};
+                rs.Settings(arr,12);
                 break;
             case 13:
-
+                String[] arr2 = {"村民","村民","村民","村民","村民",
+                        "狼人","狼人","狼人","狼人",
+                        "预言家","女巫","丘比特","守护","猎人","村长","盗贼"};
+                rs.Settings(arr2,13);
                 break;
             case 14:
-
+                String[] arr3 = {"村民","村民","村民","村民","村民",
+                        "狼人","狼人","狼人","狼人",
+                        "预言家","女巫","丘比特","守护","猎人","村长","替罪羊","盗贼"};
+                rs.Settings(arr3,14);
                 break;
             case 15:
-
+                String[] arr4 = {"村民","村民","村民","村民","村民",
+                        "狼人","狼人","狼人","狼人","狼人",
+                        "守护","预言家","猎人", "丘比特","长老", "盗贼","替罪羊","女巫"};
+                rs.Settings(arr4,15);
                 break;
             case 16:
-
+                String[] arr5 = {"村民","村民","村民","村民","村民","村民",
+                        "狼人","狼人","狼人","狼人","狼人",
+                        "预言家","女巫","丘比特","守护","猎人","村长","替罪羊","盗贼"};
+                rs.Settings(arr5,16);
                 break;
             case 17:
-
+                String[] arr6 = {"村民","村民","村民","村民","村民","村民","村民",
+                        "狼人","狼人","狼人","狼人","狼人",
+                        "预言家","女巫","丘比特","守护","猎人","村长","替罪羊","盗贼"};
+                rs.Settings(arr6,17);
                 break;
             case 18:
-                String[] array = {"Villagers","Villagers","Villagers","Villagers","Villagers","Villagers","Villagers",
-                        "Werewolves","Werewolves","Werewolves","Werewolves","Werewolves","Werewolves","Savior",
-                        "Seer","Hunter", "Cupid","Acient", "Thief","Scapegoat","Witch"};
-                int count=0;
-                g:for(int i = 0; i < 1;){
-                    if(count<=18){
-                        int ar = new Random().nextInt(21);
-                        if(array[ar]!=null){
-                            arry.add(array[ar]);
-                            array[ar]=null;
-                            count++;
-                        }
-                    }
-                    if(count>18){break g;}
-                }
+                 String[] arr7 = {"村民","村民","村民","村民","村民","村民","村民",
+                "狼人","狼人","狼人","狼人","狼人",
+                "预言家","女巫","丘比特","守护","猎人","村长","替罪羊","吹笛者","盗贼"};
+                rs.Settings(arr7,18);
                 break;
         }
-    }*/
+    }
 
     public void fixed(){
         //固定15张牌
@@ -59,7 +67,9 @@ public class WerewolfKillDealer {
                 "Savior","Seer","Hunter", "Cupid","Acient", "Thief","Scapegoat","Witch"};*/
         String[] arr = {"村民","村民","村民","村民","村民",
                 "狼人","狼人","狼人","狼人","狼人",
-                "守卫","预言家","猎人", "丘比特","长老", "盗贼","替罪羊","女巫"};
+                "守护","预言家","猎人", "丘比特","长老", "盗贼","替罪羊","女巫"};
+        /*RandomSettings rs = new RandomSettings();
+        rs.Settings(arr,15);*/
         int count=0;
         ArrayList array = new ArrayList();
         a:while(true){
