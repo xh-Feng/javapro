@@ -53,7 +53,7 @@ public class WerewolfKillDealer {
     }*/
 
     public void fixed(){
-        //无法判断底牌有什么
+        //固定15张牌
         /*String[] arr = {"Villagers","Villagers","Villagers","Villagers","Villagers",
                 "Werewolves","Werewolves","Werewolves","Werewolves","Werewolves",
                 "Savior","Seer","Hunter", "Cupid","Acient", "Thief","Scapegoat","Witch"};*/
@@ -62,17 +62,24 @@ public class WerewolfKillDealer {
                 "守卫","预言家","猎人", "丘比特","长老", "盗贼","替罪羊","女巫"};
         int count=0;
         ArrayList array = new ArrayList();
-        g:while(true){
-            if(count<18){
-                int ar = new Random().nextInt(18);
-                if(arr[ar]!=null){
-                    array.add(arr[ar]);
-                    arr[ar]=null;
-                    count++;
+        a:while(true){
+            b:while(true){
+                if(count<18){
+                    int ar = new Random().nextInt(18);
+                    if(arr[ar]!=null){
+                        array.add(arr[ar]);
+                        arr[ar]=null;
+                        count++;
+                    }
                 }
+                if(count>=18){break b;}
             }
-            if(count>=18){break g;}
+            for(int i = 0; i < array.size()-3;i++){
+                if(array.get(i).equals("盗贼")){break a;}
+            }
+
         }
+
         for (int i = 0; i<array.size();i++){
             if (i<15){
                 System.out.println(array.get(i));
