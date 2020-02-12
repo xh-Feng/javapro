@@ -72,14 +72,17 @@ public class WerewolfKillDealer {
                         count++;
                     }
                 }
+                //所有牌排好顺序后跳出本循环
                 if(count>=18){break b;}
             }
-            for(int i = 0; i < array.size()-3;i++){
-                if(array.get(i).equals("盗贼")){break a;}
+            //判断前15张牌是否有盗贼，狼人数是否大于等于4，都满足就跳出整个循环
+            int count2 = 0;
+            for(int i = 0; i <= array.size()-3;i++){
+                if(array.get(i).equals("狼人")){count2++;}
+                if(array.get(i).equals("盗贼")&&count2>=4){break a;}
             }
-
         }
-
+        //打印牌名
         for (int i = 0; i<array.size();i++){
             if (i<15){
                 System.out.println(array.get(i));
