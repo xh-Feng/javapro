@@ -2,6 +2,7 @@ package com.neuedu.test2;
 
 public class MyTest2 {
     //多线程
+    //main方法就是一条线程
     public static void main(String[] args) {
         /**MyThread t1 = new MyThread();
         //启动线程，之后的过程中，run()为入口；若不调用start，调用run()方法仅为调用了一个方法
