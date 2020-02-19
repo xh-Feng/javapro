@@ -15,21 +15,21 @@ public class StudentService implements IstudentService {
 
     @Override
     public int add(Student student) {
-        return 0;
+        return studentDao.add(student);
     }
 
     @Override
     public int update(Student student) {
-        return 0;
+        return studentDao.update(student);
     }
 
     @Override
-    public int delete(int id) {
-        return 0;
+    public int delete(int Sno) {
+        return studentDao.delete(Sno);
     }
 
     @Override
-    public Student queryOne(int id) {
+    public Student queryOne(int Sno) {
         return null;
     }
 }

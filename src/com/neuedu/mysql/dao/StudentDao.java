@@ -2,10 +2,12 @@ package com.neuedu.mysql.dao;
 
 import com.mysql.jdbc.Driver;
 import com.neuedu.mysql.pojo.Student;
+import com.neuedu.mysql.util.JdbcUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class StudentDao implements IstudentDao {
     String url="jdbc:mysql://localhost:3306/school?useUnicode=true&characterEncoding=utf8";
@@ -57,21 +59,103 @@ public class StudentDao implements IstudentDao {
 
     @Override
     public int add(Student student) {
-        return 0;
+        /*int i = 0;
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(url,usename,password);
+            pstmt = con.prepareStatement("insert into student(Sno,Sname,Ssex,Sage,Sdept) values(?,?,?,?,?)");
+            pstmt.setInt(1,student.getSno());
+            pstmt.setString(2,student.getSname());
+            pstmt.setString(3,student.getSsex());
+            pstmt.setInt(4,student.getSage());
+            pstmt.setString(5,student.getSdept());
+            i=pstmt.executeUpdate();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if (pstmt!=null)
+                    pstmt.close();
+                if (con!=null)
+                    con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;*/
+        return JdbcUtil.executeUpdate("insert into student(Sno,Sname,Ssex,Sage,Sdept) values(?,?,?,?,?)",
+                student.getSno(),student.getSname(),student.getSsex(),student.getSage(),student.getSdept());
     }
 
     @Override
     public int update(Student student) {
-        return 0;
+        /*int i = 0;
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(url,usename,password);
+            pstmt = con.prepareStatement("update student set Sname=?,Ssex=?,Sage=?,Sdept=? where Sno=?");
+            pstmt.setString(1,student.getSname());
+            pstmt.setString(2,student.getSsex());
+            pstmt.setInt(3,student.getSage());
+            pstmt.setString(4,student.getSdept());
+            pstmt.setInt(5,student.getSno());
+            i=pstmt.executeUpdate();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt!=null)
+                    pstmt.close();
+                if (con!=null)
+                    con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;*/
+        return JdbcUtil.executeUpdate("update student set Sname=?,Ssex=?,Sage=?,Sdept=? where Sno=?",
+                student.getSname(),student.getSsex(),student.getSage(),student.getSdept(),student.getSno());
     }
 
     @Override
-    public int delete(int id) {
-        return 0;
+    public int delete(int Sno) {
+        /*int i = 0;
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(url,usename,password);
+            pstmt = con.prepareStatement("delete from student where Sno=?;");
+            pstmt.setInt(1,Sno);
+            i = pstmt.executeUpdate();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt!=null)
+                    pstmt.close();
+                if (con!=null)
+                    con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return i;*/
+        return JdbcUtil.executeUpdate("delete from student where Sno=?",Sno);
     }
 
     @Override
-    public Student queryOne(int id) {
+    public Student queryOne(int Sno) {
         return null;
     }
 }

@@ -8,6 +8,6 @@ public interface IstudentService {
     List<Student> query();
     int add(Student student);
     int update(Student student);
-    int delete(int id);
-    Student queryOne(int id);
+    int delete(int Sno);
+    Student queryOne(int Sno);
 }
