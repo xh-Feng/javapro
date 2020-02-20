@@ -4,27 +4,21 @@ package com.neuedu.mysql.web;
 import com.neuedu.mysql.pojo.Student;
 import com.neuedu.mysql.service.IstudentService;
 import com.neuedu.mysql.service.StudentService;
+import com.neuedu.mysql.test.MyTestShow;
+import com.neuedu.mysql.util.WebUtil;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class StudentWeb {
     IstudentService studentService = new StudentService();
+    WebUtil webUtil = new WebUtil();
     public void showmain(){
-        menu();
+        webUtil.menu("学生");
         while (true)
             input();
     }
-    public void menu(){
-        System.out.println("**********************");
-        System.out.println("**1—————————查询所有**");
-        System.out.println("**2—————————————添加**");
-        System.out.println("**3—————————————修改**");
-        System.out.println("**4—————————————删除**");
-        System.out.println("**5—————————查询菜单**");
-        System.out.println("**6—————————————退出**");
-        System.out.println("**********************");
-    }
+
     public void input(){
         Scanner scanner = new Scanner(System.in);
         int i = scanner.nextInt();
@@ -42,9 +36,12 @@ public class StudentWeb {
                 delete(scanner);
                 break;
             case 5:
-                menu();
+                webUtil.menu("学生");
                 break;
             case 6:
+                MyTestShow.showmain();
+                break;
+            case 7:
                 System.exit(0);
         }
     }
@@ -83,7 +80,7 @@ public class StudentWeb {
         Student student = new Student(Sno,Sname,Ssex,Sage,Sdept);
         //调用服务层update方法
         studentService.update(student);
-        System.out.println("修改1成功");
+        System.out.println("修改成功");
     }
     public void delete(Scanner scanner){
         System.out.println("请输入要删除的学生的学号：");

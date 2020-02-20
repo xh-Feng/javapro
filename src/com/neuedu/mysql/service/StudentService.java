@@ -24,12 +24,12 @@ public class StudentService implements IstudentService {
     }
 
     @Override
-    public int delete(int Sno) {
-        return studentDao.delete(Sno);
+    public int delete(int sno) {
+        return studentDao.delete(sno);
     }
 
     @Override
-    public Student queryOne(int Sno) {
+    public Student queryOne(int sno) {
         return null;
     }
 }

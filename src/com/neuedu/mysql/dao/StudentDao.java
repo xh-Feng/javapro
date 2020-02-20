@@ -15,8 +15,8 @@ public class StudentDao implements IstudentDao {
     String password="123";
     @Override
     public List<Student> query() {
-        List<Student> list = new ArrayList<>();
-        Connection con = null;
+       /* List<Student> list = new ArrayList<>();*/
+        /*Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         try {
@@ -25,10 +25,10 @@ public class StudentDao implements IstudentDao {
             pstmt = con.prepareStatement("select Sno,Sname,Ssex,Sage,Sdept from student");
             // 如果是查询  调用 executeQuery方法 返回一个 ResultSet 结果集
             rs = pstmt.executeQuery();
-            /*  ResultSet 每次调用 next()方法的时候 会做两件事
-             *    1 看一下有没有下一行 如果没有返回fasle
-             *    2 如果有 将游标推向下一行 返回true
-             * */
+            //  ResultSet 每次调用 next()方法的时候 会做两件事
+             //   1 看一下有没有下一行 如果没有返回fasle
+             //    2 如果有 将游标推向下一行 返回true
+
             while(rs.next()){
                 Student student = new Student();
                 student.setSno(rs.getInt("Sno"));
@@ -54,7 +54,8 @@ public class StudentDao implements IstudentDao {
                 e.printStackTrace();
             }
         }
-        return list;
+        return list;*/
+        return JdbcUtil.executeQuery("select Sno,Sname,Ssex,Sage,Sdept from student",Student.class);
     }
 
     @Override
@@ -126,7 +127,7 @@ public class StudentDao implements IstudentDao {
     }
 
     @Override
-    public int delete(int Sno) {
+    public int delete(int sno) {
         /*int i = 0;
         Connection con = null;
         PreparedStatement pstmt = null;
@@ -151,11 +152,11 @@ public class StudentDao implements IstudentDao {
             }
         }
         return i;*/
-        return JdbcUtil.executeUpdate("delete from student where Sno=?",Sno);
+        return JdbcUtil.executeUpdate("delete from student where Sno=?",sno);
     }
 
     @Override
-    public Student queryOne(int Sno) {
+    public Student queryOne(int sno) {
         return null;
     }
 }
